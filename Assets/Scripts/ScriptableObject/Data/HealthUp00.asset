@@ -15,4 +15,6 @@ MonoBehaviour:
   displayName: "20 \uD68C\uBCF5"
   dropPrefab: {fileID: 8354459152007051568, guid: 92547068fc7372c48b17d7f7138a2279,
     type: 3}
-  consumables: []
+  consumables:
+  - type: 0
+    value: 20

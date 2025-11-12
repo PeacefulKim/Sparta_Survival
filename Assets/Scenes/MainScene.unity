@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 201917752}
+  itemData: {fileID: 0}
 --- !u!114 &201917752
 MonoBehaviour:
   m_ObjectHideFlags: 0
