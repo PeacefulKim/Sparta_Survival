@@ -4,37 +4,30 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Image healthBar;
-    public float currentHp;
-    public float maxHp;
-    public float passiveDmg;
-    private float width;
+    private float fullWidth;
 
     void Start()
     {
-        currentHp = maxHp;
-        width = healthBar.rectTransform.sizeDelta.x;
+        //fullWidth = healthBar.rectTransform.sizeDelta.x;
+        fullWidth = 700f;
     }
-    void Update()
+    //public void Add(float amount)
+    //{
+    //    currentHp = Mathf.Min(currentHp + amount, maxHp);
+    //}
+    //public void Subtract(float amount)
+    //{
+    //    currentHp = Mathf.Max(currentHp - amount, 0.0f);
+    //}
+    //public float GetPercentage()
+    //{
+    //    return currentHp / maxHp;
+    //}
+    public void UpdateBar(float currentHp ,float maxHp)
     {
-        UpdateBar();
-    }
-    public void Add(float amount)
-    {
-        currentHp = Mathf.Min(currentHp + amount, maxHp);
-    }
-    public void Subtract(float amount)
-    {
-        currentHp = Mathf.Max(currentHp - amount, 0.0f);
-    }
-    public float GetPercentage()
-    {
-        return currentHp / maxHp;
-    }
-    private void UpdateBar()
-    {
-        float curHp = GetPercentage();
+        float ratio = currentHp / maxHp;
         Vector2 size = healthBar.rectTransform.sizeDelta;
-        size.x = width * curHp;
+        size.x = fullWidth * ratio;
         healthBar.rectTransform.sizeDelta = size;
     }
 }

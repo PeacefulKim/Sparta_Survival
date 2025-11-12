@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class PlayerCondition : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float maxHp = 100f;
+    public float currentHp;
+    public float decreaseRate = 3f;
+
+    public HealthBar healthBar;
+
     void Start()
     {
-        
+        currentHp = maxHp;
+        healthBar.UpdateBar(currentHp, maxHp);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        currentHp -= decreaseRate * Time.deltaTime;
+        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        healthBar.UpdateBar(currentHp, maxHp);
+    }
+    public void Heal(float amount)
+    {
+        currentHp = Mathf.Min(currentHp + amount, maxHp);
+        healthBar.UpdateBar(currentHp, maxHp);
     }
 }
