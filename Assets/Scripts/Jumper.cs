@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class Jumper : MonoBehaviour
 {
-    public float jumperPower = 100f;
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float jumperPower = 300f;
 
     private void OnTriggerEnter(Collider other)
     {
